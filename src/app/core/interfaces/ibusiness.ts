@@ -4,6 +4,6 @@ export interface IBusiness {
   business: string;
   valuation: number;
   active: boolean;
-  vep: string;
+  cep: string;
   cnpj: number;
 }
