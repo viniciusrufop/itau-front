@@ -1,0 +1,35 @@
+<div class="vr-header">
+  <div class="vr-header-content">
+      <img src="./assets/images/logo-itau-varejo-desktop.png" alt="itau" width="60px">
+      <div class="vr-header-title ml-3px mt-auto mb-8px">BBA</div>
+      <div class="ms-auto d-flex">
+        <span class="my-auto fs-17 fw-500">PT</span>
+        <mat-divider class="ml-25px mr-25px" [vertical]="true"></mat-divider>
+        <span class="vr-circulo my-auto"></span>
+        <div class="ml-15px my-auto">
+          <div class="fw-600" style="line-height: 14px">John Doe</div>
+          <div style="line-height: 14px">Diretor Itaú BBA</div>
+        </div>
+        <mat-icon class="ml-15px my-auto cursor-pointer" [matMenuTriggerFor]="menu">keyboard_arrow_down</mat-icon>
+      </div>
+  </div>
+</div>
+
+
+
+<mat-menu #menu="matMenu" class="pl-10px pr-10px max-w-200px">
+  <mat-form-field>
+    <mat-label>Idioma</mat-label>
+    <mat-select value="pt-BR">
+      <mat-option value="pt-BR">Português</mat-option>
+      <mat-option value="en-US">Inglês</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Tema</mat-label>
+    <mat-select value="light-theme">
+      <mat-option value="light-theme">Claro</mat-option>
+      <mat-option value="dark-theme">Escuro</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-menu>
