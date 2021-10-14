@@ -1,0 +1,30 @@
+$dark-colors: (
+  text-label: #FFFFFF,
+);
+
+$light-colors: (
+  text-label: #000000,
+);
+
+$default-cores: (
+);
+
+.light-theme{
+  @each $name, $color in $light-colors {
+    --#{$name}: #{$color};
+  }
+
+  @each $name, $color in $default-cores {
+    --#{$name}: #{$color};
+  }
+}
+
+.dark-theme {
+  @each $name, $color in $dark-colors {
+    --#{$name}: #{$color};
+  }
+
+  @each $name, $color in $default-cores {
+    --#{$name}: #{$color};
+  }
+}

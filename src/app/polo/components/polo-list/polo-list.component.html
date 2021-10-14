@@ -1,0 +1,6 @@
+<p>polo-list works!</p>
+<ng-container *ngFor="let item of arrayPolos">
+  <div (click)="viewPolo(item.id)" style="cursor: pointer">
+    {{ item.name }}
+  </div>
+</ng-container>
