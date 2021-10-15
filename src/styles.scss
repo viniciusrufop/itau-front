@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Roboto', sans-serif; background-color: #fbfbfb !important; }
 
 .cursor-pointer { cursor: pointer; }
 
@@ -30,10 +30,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .max-w-#{$i}px { max-width: (#{$i}px !important);}
 }
 
-/** FONT-SIZE => .fs-1 | .fs-1-5 | .fs-30 | .fs-30-5 */
 @for $i from 1 through 30 {
+  /** FONT-SIZE => .fs-1 | .fs-1-5 | .fs-30 | .fs-30-5 */
   .fs-#{$i} {font-size: (#{$i}px !important);}
   .fs-#{$i}-5  {font-size: #{$i + 0.5}px !important;}
+
+  /** LINE-HEIGHT => .ln-1px | .ln-30px */
+  .lh-#{$i}px {line-height: (#{$i}px !important);}
 }
 
 /** FONT-WEIGHT => .fw-100 | .fw-900  */

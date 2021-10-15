@@ -1,35 +1,51 @@
-<ng-container *ngIf="dataSource.data">
-  <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-  </mat-form-field>
+<div class="d-flex mt-50px">
+  <div>
+    <div class="fs-25 fw-600 lh-25px">
+      Polos Itaú
+    </div>
+    <div class="mt-5px fs-20 fw-300 lh-20px">
+      confira abaixo alguns dos principais polos do itaú
+    </div>
+  </div>
+  <div class="ms-auto">
+    <input class="vr-input-search" (keyup)="applyFilter($event)" placeholder="Pesquisar..." #input>
+  </div>
+</div>
 
-  <div class="mat-elevation-z8">
+<ng-container *ngIf="dataSource.data">
+  <div class="mat-elevation-z8 mt-30px">
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
-        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        <th class="w-28p" mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td class="w-28p fw-600" mat-cell *matCellDef="let row"> {{row.name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="business">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Business </th>
-        <td mat-cell *matCellDef="let row"> {{row.business}} </td>
+        <th class="w-28p" mat-header-cell *matHeaderCellDef mat-sort-header> Business </th>
+        <td class="w-28p" mat-cell *matCellDef="let row"> {{row.business}} </td>
       </ng-container>
 
       <ng-container matColumnDef="valuation">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Valuation </th>
-        <td mat-cell *matCellDef="let row"> {{row.valuation}} </td>
+        <th class="w-28p" mat-header-cell *matHeaderCellDef mat-sort-header> Valuation </th>
+        <td class="w-28p" mat-cell *matCellDef="let row"> {{ row.valuation | currency:'BRL':true }} </td>
+<!--        <td class="w-28p" mat-cell *matCellDef="let row"> {{ row.valuation | currency:'USD':true }} </td>-->
       </ng-container>
 
       <ng-container matColumnDef="active">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Situação </th>
-        <td mat-cell *matCellDef="let row"> {{row.active}} </td>
+        <th class="w-8p" mat-header-cell *matHeaderCellDef mat-sort-header> Situação </th>
+        <td class="w-8p" mat-cell *matCellDef="let row">
+          <div class="d-flex">
+            <span class="ml-20px" [ngClass]="row.active ? 'vr-active-true' : 'vr-active-false'"></span>
+          </div>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ação </th>
-        <td mat-cell *matCellDef="let row" (click)="viewPolo(row.id)"> icone </td>
+        <th class="w-8p" mat-header-cell *matHeaderCellDef> Ação </th>
+        <td class="w-8p cursor-pointer" mat-cell *matCellDef="let row" (click)="viewPolo(row.id)">
+          <mat-icon>visibility</mat-icon>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

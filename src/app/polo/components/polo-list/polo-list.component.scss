@@ -10,3 +10,13 @@ table {
 td, th {
   width: 25%;
 }
+
+.vr-input-search { height: 40px; border-radius: 5px; border: 1px solid #e7e7e7; padding-left: 15px; width: 400px; background-color: transparent; }
+.vr-input-search:focus-visible { outline: unset; }
+
+.vr-active { width: 10px; height: 10px; border-radius: 10px; }
+.vr-active-true { @extend .vr-active; background-color: #6DF571;}
+.vr-active-false { @extend .vr-active; background-color: #FF7573;}
+
+.w-8p { width: 8%; }
+.w-28p { width: 28%; }

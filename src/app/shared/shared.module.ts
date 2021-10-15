@@ -1,4 +1,9 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt)
+
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { TokenInterceptor } from "../core/interceptors/token.interceptor";
@@ -10,6 +15,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSelectModule } from "@angular/material/select";
+import { MatSortModule } from "@angular/material/sort";
 
 @NgModule({
   declarations: [],
@@ -23,9 +29,11 @@ import { MatSelectModule } from "@angular/material/select";
     MatDividerModule,
     MatMenuModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSortModule
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ]
 })

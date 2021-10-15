@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { PoloService } from "../../../core/services/polo.service";
 import { BlockUI, NgBlockUI } from "ng-block-ui";
 import { Subject } from "rxjs";
@@ -14,12 +14,17 @@ import { MatSort } from "@angular/material/sort";
   templateUrl: './polo-list.component.html',
   styleUrls: ['./polo-list.component.scss']
 })
-export class PoloListComponent implements OnInit, OnDestroy, AfterViewInit {
+export class PoloListComponent implements OnInit, OnDestroy {
 
   @BlockUI() blockUI!: NgBlockUI;
   private unsub$ = new Subject();
-  @ViewChild(MatPaginator) paginator: MatPaginator = {} as MatPaginator;
-  @ViewChild(MatSort) sort: MatSort = {} as MatSort;
+  // Necessário utilizar o ViewChild dessa forma pelo fato do *ngIf para exibir a tabela
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.dataSource.paginator = paginator;
+  };
+  @ViewChild(MatSort) set sort(sort: MatSort) {
+    this.dataSource.sort = sort;
+  };
 
   public displayedColumns: string[] = ['name', 'business', 'valuation', 'active', 'action'];
   public dataSource: MatTableDataSource<IBusiness> = {} as MatTableDataSource<IBusiness>;
@@ -27,15 +32,10 @@ export class PoloListComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private poloService: PoloService,
     private router: Router,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getAllPolos();
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   ngOnDestroy() {
