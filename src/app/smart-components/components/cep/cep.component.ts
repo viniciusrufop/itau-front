@@ -4,6 +4,7 @@ import { ErrorService } from "../../../core/services/error.service";
 import { BlockUI, NgBlockUI } from "ng-block-ui";
 import { FormGroup } from "@angular/forms";
 import { UtilService } from "../../../core/services/util.service";
+import { InfoCep } from "../../../core/interfaces/info-cep";
 
 @Component({
   selector: 'app-cep',
@@ -14,7 +15,7 @@ export class CepComponent implements OnInit {
 
   @BlockUI() blockUI!: NgBlockUI;
   @Input() form!: FormGroup;
-  @Output() infoCep: EventEmitter<any> = new EventEmitter();
+  @Output() infoCep: EventEmitter<InfoCep> = new EventEmitter();
 
   constructor(
     private errorService: ErrorService,
@@ -40,6 +41,14 @@ export class CepComponent implements OnInit {
       let concatError = error.errors.map((obj: any) => obj.message);
       this.errorService.errorMessage(concatError.join(' - '))
       this.blockUI.stop();
+      this.infoCep.emit({
+        cep: cepNumber,
+        city: '',
+        service: '',
+        state: '',
+        street: '',
+        neighborhood: ''
+      });
     });
   }
 
