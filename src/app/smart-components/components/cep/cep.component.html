@@ -1,0 +1,4 @@
+<mat-form-field class="w-100" appearance="outline">
+  <mat-label>CEP</mat-label>
+  <input matInput placeholder="CEP" mask="00000-000"  maxlength="9" [(ngModel)]="cepNumber" (input)="handleCep($event)">
+</mat-form-field>

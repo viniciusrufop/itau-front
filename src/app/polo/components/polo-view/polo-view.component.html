@@ -1,43 +1,40 @@
 <div class="mt-50px">
   <div class="fs-25 fw-600 lh-25px">
-    Polo <{{ polo?.name }}>
+    Polo <{{ form.get('name')?.value }}>
   </div>
   <div class="mt-5px fs-20 fw-300 lh-20px">
-    exibindo detalhes do polo <{{ polo?.name }}>#<{{ polo?.id }}>
+    exibindo detalhes do polo <{{ form.get('name')?.value }}>#<{{ form.get('id')?.value }}>
   </div>
 </div>
 <div class="mt-60px">
   Detalhes do Endereço
 </div>
-<div class="row mt-20px">
+<div class="row mt-20px" [formGroup]="formInfoCep">
   <div class="col-2">
-    <mat-form-field class="w-100" appearance="outline">
-      <mat-label>CEP</mat-label>
-      <input matInput placeholder="CEP">
-    </mat-form-field>
+    <app-cep [cepNumber]="form.get('cep')?.value" (infoCep)="infoCep($event)"></app-cep>
   </div>
   <div class="col-4">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Nome da Rua</mat-label>
-      <input matInput placeholder="Nome da Rua">
+      <input matInput placeholder="Nome da Rua" formControlName="street">
     </mat-form-field>
   </div>
   <div class="col-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Bairro</mat-label>
-      <input matInput placeholder="Bairro">
+      <input matInput placeholder="Bairro" formControlName="neighborhood">
     </mat-form-field>
   </div>
   <div class="col-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Estado</mat-label>
-      <input matInput placeholder="Estado">
+      <input matInput placeholder="Estado" formControlName="state">
     </mat-form-field>
   </div>
   <div class="col-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Cidade</mat-label>
-      <input matInput placeholder="Cidade">
+      <input matInput placeholder="Cidade" formControlName="city">
     </mat-form-field>
   </div>
 </div>
@@ -86,5 +83,5 @@
 </div>
 <div class="mt-30px d-flex">
   <button class="vr-btn-cancel" mat-raised-button [routerLink]="['/polo/list']">Voltar</button>
-  <button class="vr-btn-save ml-20px w-150px" mat-raised-button>Salvar</button>
+  <button class="vr-btn-save ml-20px w-150px" mat-raised-button (click)="save()">Salvar</button>
 </div>

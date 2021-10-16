@@ -21,4 +21,12 @@ export class PoloService {
     return this.http.get<IBusiness>(`${environment.urlApi}/api/v1/itau_teste/${id}`);
   }
 
+  create(form: any): Observable<any> {
+    return this.http.post<any>(`${environment.urlApi}/api/v1/itau_teste`, form);
+  }
+
+  update(id: number, form: any): Observable<any> {
+    return this.http.put<any>(`${environment.urlApi}/api/v1/itau_teste/${id}`, form);
+  }
+
 }
