@@ -44,12 +44,13 @@ export class AuthService {
     return this.http.get(`${environment.urlApi}/auth/logout`).pipe(
       tap(() => {
         window.localStorage.clear();
-        this._isAuthenticated.next(false);
+        this.setAuthState({} as User, false);
         return this.router.navigate(['/login']);
       }),
       catchError(error => {
+        window.localStorage.clear();
         this.setAuthState({} as User, false);
-        return throwError(error);
+        return this.router.navigate(['/login']);
       })
     );
   }
@@ -57,10 +58,10 @@ export class AuthService {
   isLoggedTeste(): Observable<User> {
     const user: User = {
       theme: 'light-theme',
-      language: 'pt-BR',
+      language: 'PT',
       sessionKey: 'sessionKey-teste',
-      fullName: 'Vinicius Rocha',
-      profile: 'Desenvolvedor'
+      fullName: 'John Doe',
+      profile: 'Diretor Itaú BBA'
     };
 
     this.setAuthState(user, true);
@@ -80,7 +81,7 @@ export class AuthService {
     );
   }
 
-  private setAuthState(userData: User, authenticated: boolean): void {
+  public setAuthState(userData: User, authenticated: boolean): void {
     window.localStorage.setItem(StorageKeys.AUTH_TOKEN, userData.sessionKey);
     window.localStorage.setItem(StorageKeys.LANGUAGE, userData.language);
     window.localStorage.setItem(StorageKeys.THEME, userData.theme);

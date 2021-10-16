@@ -1,18 +1,8 @@
-table {
-  width: 100%;
-}
+table {width: 100%;}
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+.mat-form-field {font-size: 14px;width: 100%;}
 
-td, th {
-  width: 25%;
-}
-
-.vr-input-search { height: 40px; border-radius: 5px; border: 1px solid #e7e7e7; padding-left: 15px; width: 400px; background-color: transparent; }
-.vr-input-search:focus-visible { outline: unset; }
+td, th { width: 25%; }
 
 .vr-active { width: 10px; height: 10px; border-radius: 10px; }
 .vr-active-true { @extend .vr-active; background-color: #6DF571;}

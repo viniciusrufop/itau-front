@@ -8,7 +8,9 @@
     </div>
   </div>
   <div class="ms-auto">
-    <input class="vr-input-search" (keyup)="applyFilter($event)" placeholder="Pesquisar..." #input>
+    <mat-form-field appearance="outline" style="width: 400px">
+      <input matInput placeholder="Pesquisar..." (keyup)="applyFilter($event)" #input >
+    </mat-form-field>
   </div>
 </div>
 

@@ -3,19 +3,17 @@
       <img src="./assets/images/logo-itau-varejo-desktop.png" alt="itau" width="60px">
       <div class="vr-header-title ml-3px mt-auto mb-8px">BBA</div>
       <div class="ms-auto d-flex">
-        <span class="my-auto fs-17 fw-500">PT</span>
+        <span class="my-auto fs-17 fw-500">{{ userData.language }}</span>
         <mat-divider class="ml-25px mr-25px" [vertical]="true"></mat-divider>
         <span class="vr-circulo my-auto"></span>
         <div class="ml-15px my-auto">
-          <div class="fw-600 lh-14px">John Doe</div>
-          <div class="lh-14px">Diretor Itaú BBA</div>
+          <div class="fw-600 lh-14px">{{ userData.fullName }}</div>
+          <div class="lh-14px">{{ userData.profile }}</div>
         </div>
         <mat-icon class="ml-15px my-auto cursor-pointer" [matMenuTriggerFor]="menu">keyboard_arrow_down</mat-icon>
       </div>
   </div>
 </div>
-
-
 
 <mat-menu #menu="matMenu" class="pl-10px pr-10px max-w-200px">
   <mat-form-field>
@@ -32,4 +30,8 @@
       <mat-option value="dark-theme">Escuro</mat-option>
     </mat-select>
   </mat-form-field>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Logout</span>
+  </button>
 </mat-menu>

@@ -19,6 +19,7 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatButtonModule } from "@angular/material/button";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxMaskModule } from "ngx-mask";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [],
@@ -37,7 +38,8 @@ import { NgxMaskModule } from "ngx-mask";
     MatSelectModule,
     MatSortModule,
     MatButtonModule,
-    NgxMaskModule
+    NgxMaskModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

@@ -10,28 +10,28 @@
   Detalhes do Endereço
 </div>
 <div class="row mt-20px" [formGroup]="formInfoCep">
-  <div class="col-2">
+  <div class="col-lg-2">
     <app-cep [cepNumber]="form.get('cep')?.value" (infoCep)="infoCep($event)"></app-cep>
   </div>
-  <div class="col-4">
+  <div class="col-lg-4">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Nome da Rua</mat-label>
       <input matInput placeholder="Nome da Rua" formControlName="street">
     </mat-form-field>
   </div>
-  <div class="col-2">
+  <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Bairro</mat-label>
       <input matInput placeholder="Bairro" formControlName="neighborhood">
     </mat-form-field>
   </div>
-  <div class="col-2">
+  <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Estado</mat-label>
       <input matInput placeholder="Estado" formControlName="state">
     </mat-form-field>
   </div>
-  <div class="col-2">
+  <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Cidade</mat-label>
       <input matInput placeholder="Cidade" formControlName="city">
@@ -42,35 +42,35 @@
   Detalhes da Empresa
 </div>
 <div class="row mt-20px" [formGroup]="form">
-  <div class="col-2">
+  <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Nome</mat-label>
       <input matInput placeholder="Nome" formControlName="name">
       <mat-error>{{ getErrorMessage('name')}}</mat-error>
     </mat-form-field>
   </div>
-  <div class="col-2">
+  <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Business</mat-label>
       <input matInput placeholder="Business" formControlName="business">
       <mat-error>{{ getErrorMessage('business')}}</mat-error>
     </mat-form-field>
   </div>
-  <div class="col-2">
+  <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Valuation</mat-label>
       <input matInput prefix="R$ " mask="separator.2" thousandSeparator="." placeholder="Valuation" formControlName="valuation">
       <mat-error>{{ getErrorMessage('valuation')}}</mat-error>
     </mat-form-field>
   </div>
-  <div class="col-2">
+  <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>CNPJ</mat-label>
       <input matInput placeholder="CNPJ" mask="CPF_CNPJ" formControlName="cnpj">
       <mat-error>{{ getErrorMessage('cnpj')}}</mat-error>
     </mat-form-field>
   </div>
-  <div class="col-2">
+  <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Ativo?</mat-label>
       <mat-select formControlName="active">
