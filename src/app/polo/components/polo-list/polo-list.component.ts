@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-polo-list',
@@ -28,13 +29,21 @@ export class PoloListComponent implements OnInit, OnDestroy {
 
   public displayedColumns: string[] = ['name', 'business', 'valuation', 'active', 'action'];
   public dataSource: MatTableDataSource<IBusiness> = {} as MatTableDataSource<IBusiness>;
+  public lang!: string;
+  public currency: any = {
+    pt: 'BRL',
+    en: 'USD'
+  };
 
   constructor(
     private poloService: PoloService,
     private router: Router,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
+    this.lang = this.translateService.currentLang;
+    this.translateService.onLangChange.pipe(takeUntil(this.unsub$)).subscribe(res => this.lang = res.lang)
     this.getAllPolos();
   }
 

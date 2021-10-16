@@ -58,7 +58,7 @@ export class AuthService {
   isLoggedTeste(): Observable<User> {
     const user: User = {
       theme: 'light-theme',
-      language: 'PT',
+      language: 'pt',
       sessionKey: 'sessionKey-teste',
       fullName: 'John Doe',
       profile: 'Diretor Itaú BBA'

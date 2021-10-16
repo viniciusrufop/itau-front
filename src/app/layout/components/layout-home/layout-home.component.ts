@@ -9,24 +9,8 @@ import { StorageKeys } from "../../../core/interfaces/storage-keys";
 })
 export class LayoutHomeComponent implements OnInit {
 
-  constructor(
-    public overlayContainer: OverlayContainer,
-  ) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.changeTheme('light-theme')
-  }
-
-  changeTheme(theme: string): void {
-    // @ts-ignore
-    this.overlayContainer.getContainerElement().parentElement.classList.remove('dark-theme');
-    // @ts-ignore
-    this.overlayContainer.getContainerElement().parentElement.classList.remove('light-theme');
-    // @ts-ignore
-    this.overlayContainer.getContainerElement().parentElement.classList.add(theme);
-
-    // window.localStorage.setItem(StorageKeys.THEME, theme.value);
-    // this.userData.theme = theme.value;
-  }
+  ngOnInit(): void {}
 
 }

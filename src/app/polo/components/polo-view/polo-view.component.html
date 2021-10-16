@@ -59,7 +59,7 @@
   <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>Valuation</mat-label>
-      <input matInput prefix="R$ " mask="separator.2" thousandSeparator="." placeholder="Valuation" formControlName="valuation">
+      <input matInput [prefix]="lang === 'pt' ? 'R$ ' : 'US$ '" mask="separator.2" thousandSeparator="." placeholder="Valuation" formControlName="valuation">
       <mat-error>{{ getErrorMessage('valuation')}}</mat-error>
     </mat-form-field>
   </div>

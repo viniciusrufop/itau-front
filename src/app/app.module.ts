@@ -10,6 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BlockUIModule } from "ng-block-ui";
 import { ToastrModule } from "ngx-toastr";
 import { NgxMaskModule } from "ngx-mask";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgxMaskModule } from "ngx-mask";
     BlockUIModule.forRoot(),
     ToastrModule.forRoot(),
     NgxMaskModule.forRoot(),
+    TranslateModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

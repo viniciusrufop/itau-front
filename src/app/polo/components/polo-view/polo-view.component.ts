@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UtilService } from "../../../core/services/util.service";
 import { InfoCep } from "../../../core/interfaces/info-cep";
 import { ErrorService } from "../../../core/services/error.service";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-polo-view',
@@ -24,6 +25,7 @@ export class PoloViewComponent implements OnInit {
   formInfoCep!: FormGroup;
 
   public editForm: boolean = false;
+  public lang!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,10 +33,14 @@ export class PoloViewComponent implements OnInit {
     private formBuilder: FormBuilder,
     private utilService: UtilService,
     private errorService: ErrorService,
-    private router: Router
+    private router: Router,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
+    this.lang = this.translateService.currentLang;
+    this.translateService.onLangChange.pipe(takeUntil(this.unsub$)).subscribe(res => this.lang = res.lang)
+
     this.createForm();
 
     if (this.route?.snapshot?.routeConfig?.path === 'new') return;

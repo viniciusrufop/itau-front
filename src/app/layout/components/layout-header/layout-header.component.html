@@ -3,7 +3,7 @@
       <img src="./assets/images/logo-itau-varejo-desktop.png" alt="itau" width="60px">
       <div class="vr-header-title ml-3px mt-auto mb-8px">BBA</div>
       <div class="ms-auto d-flex">
-        <span class="my-auto fs-17 fw-500">{{ userData.language }}</span>
+        <span class="my-auto fs-17 fw-500">{{ userData.language | uppercase }}</span>
         <mat-divider class="ml-25px mr-25px" [vertical]="true"></mat-divider>
         <span class="vr-circulo my-auto"></span>
         <div class="ml-15px my-auto">
@@ -18,14 +18,14 @@
 <mat-menu #menu="matMenu" class="pl-10px pr-10px max-w-200px">
   <mat-form-field>
     <mat-label>Idioma</mat-label>
-    <mat-select value="pt-BR">
-      <mat-option value="pt-BR">Português</mat-option>
-      <mat-option value="en-US">Inglês</mat-option>
+    <mat-select [(value)]="language" (valueChange)="changeLanguage($event)">
+      <mat-option value="pt">Português</mat-option>
+      <mat-option value="en">Inglês</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Tema</mat-label>
-    <mat-select value="light-theme">
+    <mat-select [(value)]="theme" (valueChange)="changeTheme($event)">
       <mat-option value="light-theme">Claro</mat-option>
       <mat-option value="dark-theme">Escuro</mat-option>
     </mat-select>

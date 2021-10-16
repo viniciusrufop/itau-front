@@ -33,8 +33,7 @@
 
       <ng-container matColumnDef="valuation">
         <th class="w-28p" mat-header-cell *matHeaderCellDef mat-sort-header> Valuation </th>
-        <td class="w-28p" mat-cell *matCellDef="let row"> {{ row.valuation | currency:'BRL':true }} </td>
-<!--        <td class="w-28p" mat-cell *matCellDef="let row"> {{ row.valuation | currency:'USD':true }} </td>-->
+        <td class="w-28p" mat-cell *matCellDef="let row"> {{ row.valuation | currency:currency[lang]:true }} </td>
       </ng-container>
 
       <ng-container matColumnDef="active">
