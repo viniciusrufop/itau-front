@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; background-color: #fbfbfb !important; }
+body { margin: 0; font-family: 'Roboto', sans-serif; background-color: var(--bg-color) !important; color: var(--text-color) !important; }
 
 @for $i from 1 through 300 {
   /** MARGIN => .m-1px | .mt-5px | .mr-10px | .mb-15px | .ml-20px */
@@ -47,3 +47,14 @@ body { margin: 0; font-family: 'Roboto', sans-serif; background-color: #fbfbfb !
 .vr-btn { font-size: 18px; font-weight: 500; height: 40px; }
 .vr-btn-cancel { @extend .vr-btn; color: #FFFFFF; background-color: #989898; }
 .vr-btn-save { @extend .vr-btn; color: #FFFFFF; background-color: #FA8341; }
+
+input::placeholder {
+  color: var(--placeholder-color) !important;
+}
+
+.mat-form-field-label, .mat-select-value, .mat-select-arrow { color: var(--text-color); }
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-outline-gap { border-top-color: transparent !important; }
+.mat-form-field-appearance-outline {
+  .mat-form-field-outline-start, .mat-form-field-outline-end, .mat-form-field-outline-gap { border-color: var(--input-border-color) !important; }
+}

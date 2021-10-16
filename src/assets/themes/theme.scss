@@ -1,12 +1,20 @@
 $dark-colors: (
-  text-label: #FFFFFF,
+  text-color: #FFFFFF,
+  bg-color: #212529,
+
+  placeholder-color: #d4d3d3,
+  input-border-color: #d4d3d3,
 );
 
 $light-colors: (
-  text-label: #000000,
+  text-color: #212529,
+  bg-color: #fbfbfb,
+
+  placeholder-color: #7F7777,
+  input-border-color: currentcolor,
 );
 
-$default-cores: (
+$default-colors: (
 );
 
 .light-theme{
@@ -14,7 +22,7 @@ $default-cores: (
     --#{$name}: #{$color};
   }
 
-  @each $name, $color in $default-cores {
+  @each $name, $color in $default-colors {
     --#{$name}: #{$color};
   }
 }
@@ -24,7 +32,7 @@ $default-cores: (
     --#{$name}: #{$color};
   }
 
-  @each $name, $color in $default-cores {
+  @each $name, $color in $default-colors {
     --#{$name}: #{$color};
   }
 }

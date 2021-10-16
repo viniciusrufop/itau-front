@@ -1,4 +1,4 @@
-<div class="vr-header">
+<div class="vr-header" style="color: #212529;">
   <div class="vr-header-content">
       <img src="./assets/images/logo-itau-varejo-desktop.png" alt="itau" width="60px">
       <div class="vr-header-title ml-3px mt-auto mb-8px">BBA</div>
@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<mat-menu #menu="matMenu" class="pl-10px pr-10px max-w-200px">
+<mat-menu #menu="matMenu" class="pl-10px pr-10px max-w-200px light-theme">
   <mat-form-field>
     <mat-label>Idioma</mat-label>
     <mat-select [(value)]="language" (valueChange)="changeLanguage($event)">

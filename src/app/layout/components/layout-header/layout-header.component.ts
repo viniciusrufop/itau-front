@@ -54,7 +54,6 @@ export class LayoutHeaderComponent implements OnInit, OnDestroy {
     window.localStorage.setItem(StorageKeys.LANGUAGE, language);
     this.userData.language = language;
     this.translateService.use(language);
-    console.log('1')
   }
 
   logout(): void {
