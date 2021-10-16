@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { PoloService } from "../../../core/services/polo.service";
 import { takeUntil } from "rxjs/operators";
@@ -16,7 +16,7 @@ import { TranslateService } from "@ngx-translate/core";
   templateUrl: './polo-view.component.html',
   styleUrls: ['./polo-view.component.scss']
 })
-export class PoloViewComponent implements OnInit {
+export class PoloViewComponent implements OnInit, OnDestroy {
 
   @BlockUI() blockUI!: NgBlockUI;
   private unsub$ = new Subject();
@@ -48,6 +48,11 @@ export class PoloViewComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.getPolo(id);
+  }
+
+  ngOnDestroy() {
+    this.unsub$.next();
+    this.unsub$.complete();
   }
 
   createForm(): void {

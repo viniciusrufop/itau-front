@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OverlayContainer } from "@angular/cdk/overlay";
-import { StorageKeys } from "../../../core/interfaces/storage-keys";
 
 @Component({
   selector: 'app-layout-home',

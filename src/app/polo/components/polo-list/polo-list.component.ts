@@ -19,7 +19,7 @@ export class PoloListComponent implements OnInit, OnDestroy {
 
   @BlockUI() blockUI!: NgBlockUI;
   private unsub$ = new Subject();
-  // Necessário utilizar o ViewChild dessa forma pelo fato do *ngIf para exibir a tabela
+  // Necessário utilizar o ViewChild dessa forma pelo fato de utilizar *ngIf para exibir a tabela
   @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
     this.dataSource.paginator = paginator;
   };

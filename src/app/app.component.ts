@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.authService.isLogged().pipe(take(1)).subscribe();
-    this.authService.isLoggedTeste().pipe(take(1)).subscribe();
+    this.authService.isLogged().pipe(take(1)).subscribe();
   }
 }

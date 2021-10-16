@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxMaskModule } from "ngx-mask";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { TranslateModule } from "@ngx-translate/core";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [],
@@ -41,7 +42,8 @@ import { TranslateModule } from "@ngx-translate/core";
     MatButtonModule,
     NgxMaskModule,
     MatSnackBarModule,
-    TranslateModule
+    TranslateModule,
+    MatCardModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

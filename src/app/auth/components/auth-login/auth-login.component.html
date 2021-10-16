@@ -1,1 +1,23 @@
-<p>auth-login works!</p>
+<div class="vr-center">
+  <mat-card style="max-width: 400px;" [formGroup]="form">
+    <mat-card-header>
+      <mat-card-title>Sign in</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error>{{ getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput placeholder="Senha" formControlName="password">
+        <mat-error>{{ getErrorMessage('password')}}</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="vr-btn-save w-100" mat-raised-button (click)="signIn()">Entrar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

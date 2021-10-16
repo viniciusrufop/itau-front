@@ -40,6 +40,20 @@ export class AuthService {
     );
   }
 
+  signInTest(): Observable<User> {
+    const user: User = {
+      theme: 'light-theme',
+      language: 'pt',
+      sessionKey: 'sessionKey-teste',
+      fullName: 'John Doe',
+      profile: 'Diretor Itaú BBA'
+    };
+
+    this.setAuthState(user, true);
+
+    return this._userData.asObservable();
+  }
+
   signOut(): Observable<any> {
     return this.http.get(`${environment.urlApi}/auth/logout`).pipe(
       tap(() => {
@@ -53,20 +67,6 @@ export class AuthService {
         return this.router.navigate(['/login']);
       })
     );
-  }
-
-  isLoggedTeste(): Observable<User> {
-    const user: User = {
-      theme: 'light-theme',
-      language: 'pt',
-      sessionKey: 'sessionKey-teste',
-      fullName: 'John Doe',
-      profile: 'Diretor Itaú BBA'
-    };
-
-    this.setAuthState(user, true);
-
-    return this._userData.asObservable();
   }
 
   isLogged(): Observable<User> {
