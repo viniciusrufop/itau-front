@@ -1,3 +1,90 @@
-<p>polo-view works!</p>
-<div [routerLink]="['/polo/list']">voltar</div>
-{{ polo?.name }}
+<div class="mt-50px">
+  <div class="fs-25 fw-600 lh-25px">
+    Polo <{{ polo?.name }}>
+  </div>
+  <div class="mt-5px fs-20 fw-300 lh-20px">
+    exibindo detalhes do polo <{{ polo?.name }}>#<{{ polo?.id }}>
+  </div>
+</div>
+<div class="mt-60px">
+  Detalhes do Endereço
+</div>
+<div class="row mt-20px">
+  <div class="col-2">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>CEP</mat-label>
+      <input matInput placeholder="CEP">
+    </mat-form-field>
+  </div>
+  <div class="col-4">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Nome da Rua</mat-label>
+      <input matInput placeholder="Nome da Rua">
+    </mat-form-field>
+  </div>
+  <div class="col-2">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Bairro</mat-label>
+      <input matInput placeholder="Bairro">
+    </mat-form-field>
+  </div>
+  <div class="col-2">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Estado</mat-label>
+      <input matInput placeholder="Estado">
+    </mat-form-field>
+  </div>
+  <div class="col-2">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Cidade</mat-label>
+      <input matInput placeholder="Cidade">
+    </mat-form-field>
+  </div>
+</div>
+<div class="mt-30px">
+  Detalhes da Empresa
+</div>
+<div class="row mt-20px" [formGroup]="form">
+  <div class="col-2">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" formControlName="name">
+      <mat-error>{{ getErrorMessage('name')}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="col-2">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Business</mat-label>
+      <input matInput placeholder="Business" formControlName="business">
+      <mat-error>{{ getErrorMessage('business')}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="col-2">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Valuation</mat-label>
+      <input matInput prefix="R$ " mask="separator.2" thousandSeparator="." placeholder="Valuation" formControlName="valuation">
+      <mat-error>{{ getErrorMessage('valuation')}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="col-2">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>CNPJ</mat-label>
+      <input matInput placeholder="CNPJ" mask="CPF_CNPJ" formControlName="cnpj">
+      <mat-error>{{ getErrorMessage('cnpj')}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="col-2">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Ativo?</mat-label>
+      <mat-select formControlName="active">
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+      <mat-error>{{ getErrorMessage('active')}}</mat-error>
+    </mat-form-field>
+  </div>
+</div>
+<div class="mt-30px d-flex">
+  <button class="vr-btn-cancel" mat-raised-button [routerLink]="['/polo/list']">Voltar</button>
+  <button class="vr-btn-save ml-20px w-150px" mat-raised-button>Salvar</button>
+</div>

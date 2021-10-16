@@ -7,8 +7,8 @@ import { take } from "rxjs/operators";
   template: `
       <router-outlet>
         <ng-template #blockTemplate>
-          <div class="block-ui-template">
-            Carregando...
+          <div class="block-ui-template text-center">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
           </div>
         </ng-template>
       <block-ui [template]="blockTemplate"></block-ui>

@@ -3,8 +3,6 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; background-color: #fbfbfb !important; }
 
-.cursor-pointer { cursor: pointer; }
-
 @for $i from 1 through 300 {
   /** MARGIN => .m-1px | .mt-5px | .mr-10px | .mb-15px | .ml-20px */
   .m-#{$i}px {margin: (#{$i}px !important);}
@@ -43,3 +41,9 @@ body { margin: 0; font-family: 'Roboto', sans-serif; background-color: #fbfbfb !
 @for $i from 100 through 900 {
   .fw-#{$i} {font-weight: (#{$i} !important);}
 }
+
+.cursor-pointer { cursor: pointer; }
+
+.vr-btn { font-size: 18px; font-weight: 500; height: 40px; }
+.vr-btn-cancel { @extend .vr-btn; color: #FFFFFF; background-color: #989898; }
+.vr-btn-save { @extend .vr-btn; color: #FFFFFF; background-color: #FA8341; }

@@ -5,7 +5,7 @@ import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt)
 
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { TokenInterceptor } from "../core/interceptors/token.interceptor";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
@@ -16,11 +16,16 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSelectModule } from "@angular/material/select";
 import { MatSortModule } from "@angular/material/sort";
+import { MatButtonModule } from "@angular/material/button";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgxMaskModule } from "ngx-mask";
 
 @NgModule({
   declarations: [],
   exports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
@@ -30,7 +35,9 @@ import { MatSortModule } from "@angular/material/sort";
     MatMenuModule,
     MatIconModule,
     MatSelectModule,
-    MatSortModule
+    MatSortModule,
+    MatButtonModule,
+    NgxMaskModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

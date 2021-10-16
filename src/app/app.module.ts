@@ -9,6 +9,7 @@ import { LayoutModule } from "./layout/layout.module";
 import { HttpClientModule } from "@angular/common/http";
 import { BlockUIModule } from "ng-block-ui";
 import { ToastrModule } from "ngx-toastr";
+import { NgxMaskModule } from "ngx-mask";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ToastrModule } from "ngx-toastr";
     AppRoutingModule,
     HttpClientModule,
     BlockUIModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
