@@ -23,6 +23,8 @@ export class PoloViewComponent implements OnInit {
   form!: FormGroup;
   formInfoCep!: FormGroup;
 
+  public editForm: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private poloService: PoloService,
@@ -35,6 +37,8 @@ export class PoloViewComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
 
+    if (this.route?.snapshot?.routeConfig?.path === 'new') return;
+
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.getPolo(id);
@@ -42,7 +46,7 @@ export class PoloViewComponent implements OnInit {
 
   createForm(): void {
     this.form = this.formBuilder.group({
-      id: ['', [Validators.required]],
+      id: [''],
       name: ['', [Validators.required]],
       business: ['', [Validators.required]],
       valuation: ['', [Validators.required]],
@@ -65,6 +69,7 @@ export class PoloViewComponent implements OnInit {
     this.blockUI.start();
 
     this.poloService.getById(id).pipe(takeUntil(this.unsub$)).subscribe(res => {
+      this.editForm = true;
       this.form.patchValue({
         id: res.id,
         name: res.name,
@@ -87,12 +92,20 @@ export class PoloViewComponent implements OnInit {
 
     this.blockUI.start();
 
-    let id = this.form.get('id')?.value;
-    let form = this.form.value;
+    if (!this.editForm) {
+      let form = this.form.value;
 
-    this.poloService.update(id, form).pipe(takeUntil(this.unsub$)).subscribe(res => {
-      console.log(res)
-    }).add(() => this.blockUI.stop());
+      this.poloService.create(form).pipe(takeUntil(this.unsub$)).subscribe(res => {
+        console.log(res)
+      }).add(() => this.blockUI.stop());
+    } else {
+      let id = this.form.get('id')?.value;
+      let form = this.form.value;
+
+      this.poloService.update(id, form).pipe(takeUntil(this.unsub$)).subscribe(res => {
+        console.log(res)
+      }).add(() => this.blockUI.stop());
+    }
   }
 
   getErrorMessage(field: string): string | undefined {

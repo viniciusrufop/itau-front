@@ -8,7 +8,10 @@
     </div>
   </div>
   <div class="ms-auto">
-    <mat-form-field appearance="outline" style="width: 400px">
+    <button class="vr-btn-save ml-20px" mat-raised-button [routerLink]="['/polo/new']">
+      <mat-icon>add</mat-icon> Adicionar
+    </button>
+    <mat-form-field class="ml-10px" appearance="outline" style="width: 400px">
       <input matInput placeholder="Pesquisar..." (keyup)="applyFilter($event)" #input >
     </mat-form-field>
   </div>

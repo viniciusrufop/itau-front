@@ -11,7 +11,7 @@
 </div>
 <div class="row mt-20px" [formGroup]="formInfoCep">
   <div class="col-lg-2">
-    <app-cep [cepNumber]="form.get('cep')?.value" (infoCep)="infoCep($event)"></app-cep>
+    <app-cep [form]="form" (infoCep)="infoCep($event)"></app-cep>
   </div>
   <div class="col-lg-4">
     <mat-form-field class="w-100" appearance="outline">
@@ -66,7 +66,7 @@
   <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
       <mat-label>CNPJ</mat-label>
-      <input matInput placeholder="CNPJ" mask="CPF_CNPJ" formControlName="cnpj">
+      <input matInput placeholder="CNPJ" mask="CPF_CNPJ" formControlName="cnpj" maxlength="18">
       <mat-error>{{ getErrorMessage('cnpj')}}</mat-error>
     </mat-form-field>
   </div>

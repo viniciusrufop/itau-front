@@ -15,6 +15,11 @@ const routes: Routes = [
     component: PoloViewComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'new',
+    component: PoloViewComponent,
+    canActivate: [AuthGuard]
+  },
   { path: '**', redirectTo: '/polo/list', pathMatch: 'full'},
 ];
 

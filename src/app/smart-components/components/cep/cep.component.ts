@@ -1,29 +1,32 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as cep from 'cep-promise';
 import { ErrorService } from "../../../core/services/error.service";
 import { BlockUI, NgBlockUI } from "ng-block-ui";
+import { FormGroup } from "@angular/forms";
+import { UtilService } from "../../../core/services/util.service";
 
 @Component({
   selector: 'app-cep',
   templateUrl: './cep.component.html',
   styleUrls: ['./cep.component.scss']
 })
-export class CepComponent implements OnInit, OnChanges {
+export class CepComponent implements OnInit {
 
   @BlockUI() blockUI!: NgBlockUI;
-  @Input() cepNumber!: string;
+  @Input() form!: FormGroup;
   @Output() infoCep: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    private errorService: ErrorService
+    private errorService: ErrorService,
+    private utilService: UtilService
   ) { }
 
-  ngOnInit(): void {}
-
-  ngOnChanges(changes:SimpleChanges): void {
-    if (changes.cepNumber.currentValue) {
-      this.getCep(changes.cepNumber.currentValue)
-    }
+  ngOnInit(): void {
+    this.form.get('cep')?.valueChanges.subscribe(res => {
+      if (res.length === 8) {
+        this.getCep(res);
+      }
+    })
   }
 
   getCep(cepNumber: string): void {
@@ -40,10 +43,8 @@ export class CepComponent implements OnInit, OnChanges {
     });
   }
 
-  handleCep(event: any): void {
-    if (event.target.value.length === 9) {
-      this.getCep(event.target.value);
-    }
+  getErrorMessage(field: string): string | undefined {
+    return this.utilService.getError(this.form, field);
   }
 
 }
