@@ -34,6 +34,7 @@ export class PoloListComponent implements OnInit, OnDestroy {
     pt: 'BRL',
     en: 'USD'
   };
+  public translations: any;
 
   constructor(
     private poloService: PoloService,
@@ -43,7 +44,14 @@ export class PoloListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.lang = this.translateService.currentLang;
-    this.translateService.onLangChange.pipe(takeUntil(this.unsub$)).subscribe(res => this.lang = res.lang)
+    this.translateService.onLangChange.pipe(takeUntil(this.unsub$)).subscribe(res => {
+      this.lang = res.lang
+    });
+
+    this.translateService.stream(['polo_list.search']).pipe(takeUntil(this.unsub$)).subscribe((res: any) => {
+      this.translations = res;
+    });
+
     this.getAllPolos();
   }
 

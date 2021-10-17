@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { PoloService } from "../../../core/services/polo.service";
 import { takeUntil } from "rxjs/operators";
@@ -26,6 +26,7 @@ export class PoloViewComponent implements OnInit, OnDestroy {
 
   public editForm: boolean = false;
   public lang!: string;
+  public translations: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,12 +35,18 @@ export class PoloViewComponent implements OnInit, OnDestroy {
     private utilService: UtilService,
     private errorService: ErrorService,
     private router: Router,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private changeDetectorRef: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
     this.lang = this.translateService.currentLang;
     this.translateService.onLangChange.pipe(takeUntil(this.unsub$)).subscribe(res => this.lang = res.lang)
+
+    this.translateService.stream(['polo_view.address', 'polo_view.company']).pipe(takeUntil(this.unsub$)).subscribe((res: any) => {
+      this.translations = res;
+      this.changeDetectorRef.detectChanges();
+    });
 
     this.createForm();
 

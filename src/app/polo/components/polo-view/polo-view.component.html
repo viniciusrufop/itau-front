@@ -1,14 +1,14 @@
 <div class="mt-50px">
   <div class="fs-25 fw-600 lh-25px">
     <span *ngIf="editForm">Polo <{{ form.get('name')?.value }}></span>
-    <span *ngIf="!editForm">Novo Polo</span>
+    <span *ngIf="!editForm">{{ 'polo_view.new_polo' | translate }}</span>
   </div>
   <div *ngIf="editForm" class="mt-5px fs-20 fw-300 lh-20px">
-    exibindo detalhes do polo <{{ form.get('name')?.value }}>#<{{ form.get('id')?.value }}>
+    {{ 'polo_view.subtitle' | translate }} <{{ form.get('name')?.value }}>#<{{ form.get('id')?.value }}>
   </div>
 </div>
 <div class="mt-60px">
-  Detalhes do Endereço
+  {{ 'polo_view.title_address' | translate }}
 </div>
 <div class="row mt-20px" [formGroup]="formInfoCep">
   <div class="col-lg-2">
@@ -16,37 +16,37 @@
   </div>
   <div class="col-lg-4">
     <mat-form-field class="w-100" appearance="outline">
-      <mat-label>Nome da Rua</mat-label>
-      <input matInput placeholder="Nome da Rua" formControlName="street">
+      <mat-label>{{ 'polo_view.address.street' | translate }}</mat-label>
+      <input matInput [placeholder]="translations ? translations['polo_view.address']['street'] : 'Nome da rua'" formControlName="street">
     </mat-form-field>
   </div>
   <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
-      <mat-label>Bairro</mat-label>
-      <input matInput placeholder="Bairro" formControlName="neighborhood">
+      <mat-label>{{ 'polo_view.address.neighborhood' | translate }}</mat-label>
+      <input matInput [placeholder]="translations ? translations['polo_view.address']['neighborhood'] : 'Bairro'" formControlName="neighborhood">
     </mat-form-field>
   </div>
   <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
-      <mat-label>Estado</mat-label>
-      <input matInput placeholder="Estado" formControlName="state">
+      <mat-label>{{ 'polo_view.address.state' | translate }}</mat-label>
+      <input matInput [placeholder]="translations ? translations['polo_view.address']['state'] : 'Estado'" formControlName="state">
     </mat-form-field>
   </div>
   <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
-      <mat-label>Cidade</mat-label>
-      <input matInput placeholder="Cidade" formControlName="city">
+      <mat-label>{{ 'polo_view.address.city' | translate }}</mat-label>
+      <input matInput [placeholder]="translations ? translations['polo_view.address']['city'] : 'Cidade'" formControlName="city">
     </mat-form-field>
   </div>
 </div>
 <div class="mt-30px">
-  Detalhes da Empresa
+  {{ 'polo_view.title_company' | translate }}
 </div>
 <div class="row mt-20px" [formGroup]="form">
   <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
-      <mat-label>Nome</mat-label>
-      <input matInput placeholder="Nome" formControlName="name">
+      <mat-label>{{ 'polo_view.company.name' | translate }}</mat-label>
+      <input matInput [placeholder]="translations ? translations['polo_view.company']['name'] : 'Nome'" formControlName="name">
       <mat-error>{{ getErrorMessage('name')}}</mat-error>
     </mat-form-field>
   </div>
@@ -73,16 +73,16 @@
   </div>
   <div class="col-lg-2">
     <mat-form-field class="w-100" appearance="outline">
-      <mat-label>Ativo?</mat-label>
+      <mat-label>{{ 'polo_view.company.active' | translate }}?</mat-label>
       <mat-select formControlName="active">
-        <mat-option [value]="true">Sim</mat-option>
-        <mat-option [value]="false">Não</mat-option>
+        <mat-option [value]="true">{{ 'yes' | translate }}</mat-option>
+        <mat-option [value]="false">{{ 'no' | translate }}</mat-option>
       </mat-select>
       <mat-error>{{ getErrorMessage('active')}}</mat-error>
     </mat-form-field>
   </div>
 </div>
 <div class="mt-30px d-flex">
-  <button class="vr-btn-cancel" mat-raised-button [routerLink]="['/polo/list']">Voltar</button>
-  <button class="vr-btn-save ml-20px w-150px" mat-raised-button (click)="save()">Salvar</button>
+  <button class="vr-btn-cancel" mat-raised-button [routerLink]="['/polo/list']">{{ 'polo_view.btn_back' | translate }}</button>
+  <button class="vr-btn-save ml-20px w-150px" mat-raised-button (click)="save()">{{ 'polo_view.btn_save' | translate }}</button>
 </div>

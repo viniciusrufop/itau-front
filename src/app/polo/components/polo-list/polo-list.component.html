@@ -1,18 +1,18 @@
 <div class="d-flex mt-50px">
   <div>
     <div class="fs-25 fw-600 lh-25px">
-      Polos Itaú
+      {{ 'polo_list.title' | translate }}
     </div>
     <div class="mt-5px fs-20 fw-300 lh-20px">
-      confira abaixo alguns dos principais polos do itaú
+      {{ 'polo_list.subtitle' | translate }}
     </div>
   </div>
   <div class="ms-auto">
     <button class="vr-btn-save ml-20px" mat-raised-button [routerLink]="['/polo/new']">
-      <mat-icon>add</mat-icon> Adicionar
+      <mat-icon>add</mat-icon> {{ 'polo_list.add' | translate }}
     </button>
     <mat-form-field class="ml-10px" appearance="outline" style="width: 400px">
-      <input matInput placeholder="Pesquisar..." (keyup)="applyFilter($event)" #input >
+      <input matInput [placeholder]="translations ? translations['polo_list.search'] : ''" (keyup)="applyFilter($event)" #input >
     </mat-form-field>
   </div>
 </div>
