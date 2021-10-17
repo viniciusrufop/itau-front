@@ -16,14 +16,14 @@
 </div>
 
 <mat-menu #menu="matMenu" class="pl-10px pr-10px max-w-200px light-theme">
-  <mat-form-field>
+  <mat-form-field (click)="$event.stopPropagation()">
     <mat-label>Idioma</mat-label>
     <mat-select [(value)]="language" (valueChange)="changeLanguage($event)">
       <mat-option value="pt">Português</mat-option>
       <mat-option value="en">Inglês</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field (click)="$event.stopPropagation()">
     <mat-label>Tema</mat-label>
     <mat-select [(value)]="theme" (valueChange)="changeTheme($event)">
       <mat-option value="light-theme">Claro</mat-option>

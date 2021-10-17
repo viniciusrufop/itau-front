@@ -54,10 +54,12 @@ export class AuthLoginComponent implements OnInit, OnDestroy {
       return this.errorService.errorMessage('Formulário inválido.');
     }
 
+    /** Rota para testes */
     this.authService.signInTest().pipe(takeUntil(this.unsub$)).subscribe(() => {
       this.router.navigate(['/']).then();
     });
 
+    /** Rota para autenticação em alguma API */
     // this.blockUI.start();
     //
     // let form = this.form.value;

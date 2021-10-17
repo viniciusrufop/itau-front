@@ -21,6 +21,10 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.isLogged().pipe(take(1)).subscribe();
+    /** Rota para testes */
+    this.authService.isLoggedTest().pipe(take(1)).subscribe();
+
+    /** Rota para autenticação em alguma API */
+    // this.authService.isLogged().pipe(take(1)).subscribe();
   }
 }

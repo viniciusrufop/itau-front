@@ -1,8 +1,9 @@
 <div class="mt-50px">
   <div class="fs-25 fw-600 lh-25px">
-    Polo <{{ form.get('name')?.value }}>
+    <span *ngIf="editForm">Polo <{{ form.get('name')?.value }}></span>
+    <span *ngIf="!editForm">Novo Polo</span>
   </div>
-  <div class="mt-5px fs-20 fw-300 lh-20px">
+  <div *ngIf="editForm" class="mt-5px fs-20 fw-300 lh-20px">
     exibindo detalhes do polo <{{ form.get('name')?.value }}>#<{{ form.get('id')?.value }}>
   </div>
 </div>

@@ -57,13 +57,13 @@ export class AuthService {
   signOut(): Observable<any> {
     return this.http.get(`${environment.urlApi}/auth/logout`).pipe(
       tap(() => {
-        window.localStorage.clear();
         this.setAuthState({} as User, false);
+        window.localStorage.clear();
         return this.router.navigate(['/login']);
       }),
       catchError(error => {
-        window.localStorage.clear();
         this.setAuthState({} as User, false);
+        window.localStorage.clear();
         return this.router.navigate(['/login']);
       })
     );
@@ -79,6 +79,16 @@ export class AuthService {
         return throwError(error);
       })
     );
+  }
+
+  isLoggedTest(): Observable<User> {
+    const token: string | null = window.localStorage.getItem(StorageKeys.AUTH_TOKEN);
+
+    if (token === 'sessionKey-teste') {
+      return this.signInTest();
+    }
+
+    return this.signOut();
   }
 
   public setAuthState(userData: User, authenticated: boolean): void {
