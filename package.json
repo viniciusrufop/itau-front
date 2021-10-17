@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:prod": "ng build --base-href=https://viniciusrufop.github.io/itau-front/ && cd docs && cp index.html 404.html"
+    "build:prod": "ng build --base-href=https://viniciusrufop.github.io/itau-front/ && cd docs && cp index.html 404.html",
+    "build:teste": "ng build --prod --base-href https://viniciusrufop.github.io/itau-front/ --deploy-url=https://viniciusrufop.github.io/itau-front/ && cd docs && cp index.html 404.html"
   },
   "private": true,
   "dependencies": {
