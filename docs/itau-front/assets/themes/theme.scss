@@ -1,0 +1,38 @@
+$dark-colors: (
+  text-color: #FFFFFF,
+  bg-color: #212529,
+
+  placeholder-color: #d4d3d3,
+  input-border-color: #d4d3d3,
+);
+
+$light-colors: (
+  text-color: #212529,
+  bg-color: #fbfbfb,
+
+  placeholder-color: #7F7777,
+  input-border-color: currentcolor,
+);
+
+$default-colors: (
+);
+
+.light-theme{
+  @each $name, $color in $light-colors {
+    --#{$name}: #{$color};
+  }
+
+  @each $name, $color in $default-colors {
+    --#{$name}: #{$color};
+  }
+}
+
+.dark-theme {
+  @each $name, $color in $dark-colors {
+    --#{$name}: #{$color};
+  }
+
+  @each $name, $color in $default-colors {
+    --#{$name}: #{$color};
+  }
+}
