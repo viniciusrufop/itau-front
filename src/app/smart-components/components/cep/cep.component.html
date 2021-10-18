@@ -1,4 +1,4 @@
-<mat-form-field class="w-100" appearance="outline" [formGroup]="form">
+<mat-form-field *ngIf="form" class="w-100" appearance="outline" [formGroup]="form">
   <mat-label>CEP</mat-label>
   <input matInput placeholder="CEP" mask="00000-000" maxlength="9" formControlName="cep">
   <mat-error>{{ getErrorMessage('cep')}}</mat-error>
