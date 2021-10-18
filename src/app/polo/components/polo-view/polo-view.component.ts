@@ -40,6 +40,8 @@ export class PoloViewComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.createForm();
+
     this.lang = this.translateService.currentLang;
     this.translateService.onLangChange.pipe(takeUntil(this.unsub$)).subscribe(res => this.lang = res.lang)
 
@@ -47,8 +49,6 @@ export class PoloViewComponent implements OnInit, OnDestroy {
       this.translations = res;
       this.changeDetectorRef.detectChanges();
     });
-
-    this.createForm();
 
     if (this.route?.snapshot?.routeConfig?.path === 'new') return;
 

@@ -27,6 +27,8 @@ export class LayoutHeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.authService.userData.pipe(takeUntil(this.unsub$)).subscribe(res => {
+      if (!res || Object.entries(res).length === 0) return;
+
       this.userData = res
       this.theme = res.theme;
       this.language = res.language;
